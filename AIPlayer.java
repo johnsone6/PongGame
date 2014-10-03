@@ -2,12 +2,12 @@ import java.awt.geom.Rectangle2D;
 
 public class AIPlayer extends Rectangle2D.Double
 {
-    // instance variables - replace the example below with your own
+    // instance variables
     private final int gameHeight, gameWidth;
     private final double WIDTH = 10, HEIGHT = 60, SPEED;
 
     /**
-     * Constructor for objects of class AiPlayer
+     * Constructor for objects of class AIPlayer
      */
     public AIPlayer(int x, int y, double speed, int gameWidth, int gameHeight)
     {
@@ -21,7 +21,7 @@ public class AIPlayer extends Rectangle2D.Double
     }
 
     /**
-     *
+     * 
      */
     public void moveAI(double ballX, double ballY)
     {
