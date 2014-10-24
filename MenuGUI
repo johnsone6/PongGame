@@ -54,7 +54,7 @@ public class MenuGUI {
 		shell = new Shell();
 		shell.setBackground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		shell.setSize(450, 300);
-		shell.setText("SWT Application");
+		shell.setText("Acme Pong");
 		
 		txtAcmePong = new Label(shell, SWT.NONE);
 		txtAcmePong.setBackground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
