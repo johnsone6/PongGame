@@ -1,0 +1,95 @@
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.SWT;
+import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Label;
+
+import java.awt.*;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+
+
+public class MenuGUI {
+
+	protected Shell shell;
+	private Label txtAcmePong;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			MenuGUI window = new MenuGUI();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setBackground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		shell.setSize(450, 300);
+		shell.setText("SWT Application");
+		
+		txtAcmePong = new Label(shell, SWT.NONE);
+		txtAcmePong.setBackground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		txtAcmePong.setForeground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
+		txtAcmePong.setFont(SWTResourceManager.getFont("Courier New", 32, SWT.BOLD));
+		txtAcmePong.setText("Acme Pong");
+		txtAcmePong.setBounds(135, 10, 181, 50);
+		
+		Button btnNewGame = new Button(shell, SWT.NONE);
+		btnNewGame.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnNewGame.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		btnNewGame.setFont(SWTResourceManager.getFont("Courier New", 20, SWT.BOLD));
+		btnNewGame.setBounds(160, 104, 141, 50);
+		btnNewGame.setText("New Game");
+		
+		Button btnHighScores = new Button(shell, SWT.NONE);
+		btnHighScores.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		btnHighScores.setFont(SWTResourceManager.getFont("Courier New", 14, SWT.BOLD));
+		btnHighScores.setBounds(160, 192, 141, 35);
+		btnHighScores.setText("High Scores");
+		
+		Button btnQuit = new Button(shell, SWT.NONE);
+		btnQuit.setFont(SWTResourceManager.getFont("Courier New", 14, SWT.BOLD));
+		btnQuit.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		btnQuit.setBounds(160, 233, 141, 35);
+		btnQuit.setText("Quit");
+		
+		JLabel label = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("PongImg")).getImage();
+		label.setIcon(new ImageIcon(img));
+		label.setBounds(0, 0, 450, 278);
+
+	}
+}
